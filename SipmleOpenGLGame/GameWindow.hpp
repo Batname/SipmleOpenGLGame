@@ -17,6 +17,8 @@ private:
     
     // attributes
     bool _running;
+    GLfloat _height;
+    GLfloat _width;
 public:
     // constructor
     GameWindow(bool running);
