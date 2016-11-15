@@ -10,15 +10,16 @@
 
 typedef struct {
     GLfloat positionCoordinates[3];
+    GLfloat textureCoordinates[2];
 } VertexData;
 
 #define Square_Size 100
 
 VertexData vertices[] = {
-    {0.0f, 0.0f, 0.0f},
-    {Square_Size, 0.0f, 0.0f},
-    {Square_Size, Square_Size, 0.0f},
-    {0.0f, Square_Size, 0.0f}
+    {{0.0f, 0.0f, 0.0f},{0.0f, 0.0f}},
+    {{Square_Size, 0.0f, 0.0f},{1.0f, 0.0f}},
+    {{Square_Size, Square_Size, 0.0f},{1.0f, 1.0f}},
+    {{0.0f, Square_Size, 0.0f},{0.0f, 0.0f}}
 };
 
 GameWindow::GameWindow(bool running) :
@@ -40,6 +41,9 @@ GameWindow::GameWindow(bool running) :
     
     glEnableClientState(GL_VERTEX_ARRAY);
     glVertexPointer(3, GL_FLOAT, sizeof(VertexData), (GLvoid *) __offsetof(VertexData, positionCoordinates));
+    
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glTexCoordPointer(2, GL_FLOAT, sizeof(VertexData), (GLvoid *) __offsetof(VertexData, textureCoordinates));
 }
 
 void GameWindow::setRuning(bool newRunning)
