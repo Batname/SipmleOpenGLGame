@@ -19,6 +19,8 @@ private:
     bool _running;
     GLfloat _height;
     GLfloat _width;
+    GLuint _vertexBufferID;
+    
 public:
     // constructor
     GameWindow(bool running);
