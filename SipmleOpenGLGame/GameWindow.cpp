@@ -19,7 +19,7 @@ VertexData vertices[] = {
     {{0.0f, 0.0f, 0.0f},{0.0f, 0.0f}},
     {{Square_Size, 0.0f, 0.0f},{1.0f, 0.0f}},
     {{Square_Size, Square_Size, 0.0f},{1.0f, 1.0f}},
-    {{0.0f, Square_Size, 0.0f},{0.0f, 0.0f}}
+    {{0.0f, Square_Size, 0.0f},{0.0f, 1.0f}}
 };
 
 GameWindow::GameWindow(bool running) :
@@ -30,6 +30,10 @@ GameWindow::GameWindow(bool running) :
 {
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glViewport(0.0f, 0.0f, _width, _height);
+    
+    glEnable(GL_TEXTURE_2D);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     glMatrixMode(GL_PROJECTION);
     gluOrtho2D(0, _width, 0, _height);
@@ -44,6 +48,28 @@ GameWindow::GameWindow(bool running) :
     
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glTexCoordPointer(2, GL_FLOAT, sizeof(VertexData), (GLvoid *) __offsetof(VertexData, textureCoordinates));
+    
+    _textureBufferID = loadAndBufferImage("rocket_1.tga");
+}
+
+GLuint GameWindow::loadAndBufferImage(const char *filename)
+{
+    GLFWimage imageData;
+    glfwReadImage(filename, &imageData, NULL);
+    
+    GLuint textureBufferID;
+    glGenTextures(1, &textureBufferID);
+    glBindTexture(GL_TEXTURE_2D, textureBufferID);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageData.Width, imageData.Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData.Data);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    glfwFreeImage(&imageData);
+    
+    return textureBufferID;
 }
 
 void GameWindow::setRuning(bool newRunning)
@@ -60,7 +86,6 @@ void GameWindow::render()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
-    glColor3f(1.0f, 0.0f, 0.0f);
     glDrawArrays(GL_QUADS, 0, 4);
  
     glfwSwapBuffers();

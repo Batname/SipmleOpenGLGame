@@ -12,17 +12,19 @@
 		18B666531DDA65060085EAB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666521DDA65060085EAB1 /* OpenGL.framework */; };
 		18B666551DDA6F470085EAB1 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */; };
 		18B666571DDA75300085EAB1 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666561DDA75300085EAB1 /* libglfw.dylib */; };
+		18F9D3891DDBB9C800DC178B /* rocket_1.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18F9D3881DDBB9A800DC178B /* rocket_1.tga */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		18B666431DDA62FC0085EAB1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				18F9D3891DDBB9C800DC178B /* rocket_1.tga in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -35,6 +37,7 @@
 		18B666521DDA65060085EAB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
 		18B666561DDA75300085EAB1 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = ../../../../../usr/local/Cellar/glfw2/2.7.9/lib/libglfw.dylib; sourceTree = "<group>"; };
+		18F9D3881DDBB9A800DC178B /* rocket_1.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket_1.tga; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 		18B6663C1DDA62FC0085EAB1 = {
 			isa = PBXGroup;
 			children = (
+				18F9D3881DDBB9A800DC178B /* rocket_1.tga */,
 				18B666471DDA62FD0085EAB1 /* SipmleOpenGLGame */,
 				18B666461DDA62FD0085EAB1 /* Products */,
 				18B6664F1DDA64E80085EAB1 /* Frameworks */,
@@ -244,6 +248,7 @@
 		18B6664D1DDA62FD0085EAB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = NO;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/opt/X11/include,
@@ -266,6 +271,7 @@
 		18B6664E1DDA62FD0085EAB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = NO;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/opt/X11/include,

@@ -20,6 +20,10 @@ private:
     GLfloat _height;
     GLfloat _width;
     GLuint _vertexBufferID;
+    GLuint _textureBufferID;
+    
+    // member functions
+    GLuint loadAndBufferImage(const char *filename);
     
 public:
     // constructor
