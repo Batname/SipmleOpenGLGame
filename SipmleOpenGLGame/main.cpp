@@ -1,15 +1,11 @@
-//
-//  main.cpp
-//  SipmleOpenGLGame
-//
-//  Created by apple on 2016-11-14.
-//  Copyright © 2016 apple. All rights reserved.
-//
-
 #include <iostream>
+//#include <GL/glew.h>
+//#include <GLFW/glfw3.h>
+
+#include <GL/glfw.h>
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    glfwInit();
+
     return 0;
 }
