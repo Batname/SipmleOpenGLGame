@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1864276D1DDB6C9200E7B2E3 /* GameWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1864276B1DDB6C9200E7B2E3 /* GameWindow.cpp */; };
 		18B666491DDA62FD0085EAB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18B666481DDA62FD0085EAB1 /* main.cpp */; };
 		18B666531DDA65060085EAB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666521DDA65060085EAB1 /* OpenGL.framework */; };
 		18B666551DDA6F470085EAB1 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1864276B1DDB6C9200E7B2E3 /* GameWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameWindow.cpp; sourceTree = "<group>"; };
+		1864276C1DDB6C9200E7B2E3 /* GameWindow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameWindow.hpp; sourceTree = "<group>"; };
 		18B666451DDA62FD0085EAB1 /* SipmleOpenGLGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SipmleOpenGLGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B666481DDA62FD0085EAB1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		18B666501DDA64E80085EAB1 /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				18B666481DDA62FD0085EAB1 /* main.cpp */,
+				1864276B1DDB6C9200E7B2E3 /* GameWindow.cpp */,
+				1864276C1DDB6C9200E7B2E3 /* GameWindow.hpp */,
 			);
 			path = SipmleOpenGLGame;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B666491DDA62FD0085EAB1 /* main.cpp in Sources */,
+				1864276D1DDB6C9200E7B2E3 /* GameWindow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 				18B6664E1DDA62FD0085EAB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
