@@ -18,8 +18,10 @@ class Sprite
 private:
     // attributes
     GLuint _textureBufferID;
-    Vector2 _position;
     Vector2 _velocity;
+    
+protected:
+    Vector2 _position;
     
 public:
     // constructors
@@ -35,7 +37,7 @@ public:
     
     // member function
     void render();
-    void update();
+    virtual void update();
 };
 
 
