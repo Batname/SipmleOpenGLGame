@@ -26,6 +26,15 @@ Vector2 Sprite::getPosition()
     return _position;
 }
 
+void Sprite::setVelocity(Vector2 newVector)
+{
+    _velocity = newVector;
+}
+
+Vector2 Sprite::getVelocity()
+{
+    return _velocity;
+}
 
 void Sprite::render()
 {
@@ -37,4 +46,5 @@ void Sprite::render()
 
 void Sprite::update()
 {
+    _position = addVector2(_position, _velocity);
 }

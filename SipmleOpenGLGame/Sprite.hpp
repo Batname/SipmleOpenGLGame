@@ -9,13 +9,9 @@
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
-#include <iostream>
 #include <GL/glfw.h>
 
-typedef struct {
-    GLfloat x;
-    GLfloat y;
-} Vector2;
+#include "Vector2.hpp"
 
 class Sprite
 {
@@ -23,6 +19,7 @@ private:
     // attributes
     GLuint _textureBufferID;
     Vector2 _position;
+    Vector2 _velocity;
     
 public:
     // constructors
@@ -30,9 +27,11 @@ public:
 
     // setters
     void setPosition(Vector2 newPosition);
+    void setVelocity(Vector2 newVector);
 
     // getters
     Vector2 getPosition();
+    Vector2 getVelocity();
     
     // member function
     void render();

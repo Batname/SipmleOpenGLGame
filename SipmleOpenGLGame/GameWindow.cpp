@@ -56,7 +56,7 @@ GameWindow::GameWindow(bool running) :
     rocketPosition.y = 200;
     
     _rocket = new Sprite(_textureBufferID, rocketPosition);
-    
+    _rocket->setVelocity(makeVector2(2.0f, 2.0f));
 }
 
 GLuint GameWindow::loadAndBufferImage(const char *filename)
@@ -100,4 +100,5 @@ void GameWindow::render()
 
 void GameWindow::update()
 {
+    _rocket->update();
 }
