@@ -10,14 +10,17 @@
 #define PlayerSprite_hpp
 
 #include "Sprite.hpp"
+#include "BoundingBox.hpp"
 
 #include <Gl/glfw.h>
 
 class PlayerSprite : public Sprite
 {
 private:
+    // arguments
     double f0;
     double f_move;
+    BoundingBox _boundingBox;
     
     
 public:
@@ -25,6 +28,7 @@ public:
     
     // member functions
     void update();
+    void setBoundingBox(BoundingBox boundingBox);
 };
 
 #endif /* PlayerSprite_hpp */

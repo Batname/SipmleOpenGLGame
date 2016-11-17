@@ -11,6 +11,7 @@
 		18687DDB1DDCFDE3009A4B52 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18687DD91DDCFDE3009A4B52 /* Sprite.cpp */; };
 		18687DDE1DDE11E8009A4B52 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18687DDC1DDE11E8009A4B52 /* Vector2.cpp */; };
 		18687DE11DDE1D74009A4B52 /* PlayerSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18687DDF1DDE1D74009A4B52 /* PlayerSprite.cpp */; };
+		18687DE41DDE4AFD009A4B52 /* BoundingBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18687DE21DDE4AFD009A4B52 /* BoundingBox.cpp */; };
 		18B666491DDA62FD0085EAB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18B666481DDA62FD0085EAB1 /* main.cpp */; };
 		18B666531DDA65060085EAB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666521DDA65060085EAB1 /* OpenGL.framework */; };
 		18B666551DDA6F470085EAB1 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */; };
@@ -40,6 +41,8 @@
 		18687DDD1DDE11E8009A4B52 /* Vector2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector2.hpp; sourceTree = "<group>"; };
 		18687DDF1DDE1D74009A4B52 /* PlayerSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerSprite.cpp; sourceTree = "<group>"; };
 		18687DE01DDE1D74009A4B52 /* PlayerSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerSprite.hpp; sourceTree = "<group>"; };
+		18687DE21DDE4AFD009A4B52 /* BoundingBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingBox.cpp; sourceTree = "<group>"; };
+		18687DE31DDE4AFD009A4B52 /* BoundingBox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BoundingBox.hpp; sourceTree = "<group>"; };
 		18B666451DDA62FD0085EAB1 /* SipmleOpenGLGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SipmleOpenGLGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B666481DDA62FD0085EAB1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		18B666501DDA64E80085EAB1 /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				18687DDD1DDE11E8009A4B52 /* Vector2.hpp */,
 				18687DDF1DDE1D74009A4B52 /* PlayerSprite.cpp */,
 				18687DE01DDE1D74009A4B52 /* PlayerSprite.hpp */,
+				18687DE21DDE4AFD009A4B52 /* BoundingBox.cpp */,
+				18687DE31DDE4AFD009A4B52 /* BoundingBox.hpp */,
 			);
 			path = SipmleOpenGLGame;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				18B666491DDA62FD0085EAB1 /* main.cpp in Sources */,
 				18687DDE1DDE11E8009A4B52 /* Vector2.cpp in Sources */,
 				1864276D1DDB6C9200E7B2E3 /* GameWindow.cpp in Sources */,
+				18687DE41DDE4AFD009A4B52 /* BoundingBox.cpp in Sources */,
 				18687DDB1DDCFDE3009A4B52 /* Sprite.cpp in Sources */,
 				18687DE11DDE1D74009A4B52 /* PlayerSprite.cpp in Sources */,
 			);

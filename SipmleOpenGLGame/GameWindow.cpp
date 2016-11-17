@@ -13,8 +13,6 @@ typedef struct {
     GLfloat textureCoordinates[2];
 } VertexData;
 
-#define Square_Size 100
-
 VertexData vertices[] = {
     {{0.0f, 0.0f, 0.0f},{0.0f, 0.0f}},
     {{Square_Size, 0.0f, 0.0f},{1.0f, 0.0f}},
@@ -56,6 +54,7 @@ GameWindow::GameWindow(bool running) :
     rocketPosition.y = 200;
     
     _rocket = new PlayerSprite(_textureBufferID, rocketPosition);
+    _rocket->setBoundingBox(makeBoundingBox(_height,0,0,_width));
     // _rocket->setVelocity(makeVector2(2.0f, 2.0f));
 }
 

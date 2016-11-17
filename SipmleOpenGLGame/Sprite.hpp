@@ -13,6 +13,8 @@
 
 #include "Vector2.hpp"
 
+#define Square_Size 100
+
 class Sprite
 {
 private:
