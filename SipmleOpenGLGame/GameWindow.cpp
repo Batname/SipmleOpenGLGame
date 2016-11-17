@@ -50,6 +50,9 @@ GameWindow::GameWindow(bool running) :
     glTexCoordPointer(2, GL_FLOAT, sizeof(VertexData), (GLvoid *) __offsetof(VertexData, textureCoordinates));
     
     _textureBufferID = loadAndBufferImage("rocket_1.tga");
+    
+    _rocket = new Sprite(_textureBufferID);
+    
 }
 
 GLuint GameWindow::loadAndBufferImage(const char *filename)
@@ -86,7 +89,7 @@ void GameWindow::render()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
-    glDrawArrays(GL_QUADS, 0, 4);
+    _rocket->render();
  
     glfwSwapBuffers();
 }

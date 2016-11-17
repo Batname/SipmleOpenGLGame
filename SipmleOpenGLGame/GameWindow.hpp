@@ -9,6 +9,8 @@
 #ifndef GameWindow_hpp
 #define GameWindow_hpp
 
+#include "Sprite.hpp"
+
 #include <GL/glfw.h>
 
 class GameWindow
@@ -21,6 +23,7 @@ private:
     GLfloat _width;
     GLuint _vertexBufferID;
     GLuint _textureBufferID;
+    Sprite * _rocket;
     
     // member functions
     GLuint loadAndBufferImage(const char *filename);
