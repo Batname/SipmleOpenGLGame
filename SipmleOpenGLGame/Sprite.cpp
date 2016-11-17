@@ -8,7 +8,9 @@
 
 #include "Sprite.hpp"
 
-Sprite::Sprite(GLuint textureBufferID) : _textureBufferID(textureBufferID)
+Sprite::Sprite(GLuint textureBufferID, Vector2 position) :
+    _textureBufferID(textureBufferID),
+    _position(position)
 {
 }
 
@@ -28,6 +30,8 @@ Vector2 Sprite::getPosition()
 void Sprite::render()
 {
     glBindTexture(GL_TEXTURE_2D, _textureBufferID);
+    glLoadIdentity();
+    glTranslatef(_position.x, _position.y, 0);
     glDrawArrays(GL_QUADS, 0, 4);
 }
 

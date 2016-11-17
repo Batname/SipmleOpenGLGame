@@ -26,7 +26,7 @@ private:
     
 public:
     // constructors
-    Sprite(GLuint textureBufferID);
+    Sprite(GLuint textureBufferID, Vector2 position);
 
     // setters
     void setPosition(Vector2 newPosition);

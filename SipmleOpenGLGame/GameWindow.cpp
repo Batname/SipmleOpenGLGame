@@ -51,7 +51,11 @@ GameWindow::GameWindow(bool running) :
     
     _textureBufferID = loadAndBufferImage("rocket_1.tga");
     
-    _rocket = new Sprite(_textureBufferID);
+    Vector2 rocketPosition;
+    rocketPosition.x = 300;
+    rocketPosition.y = 200;
+    
+    _rocket = new Sprite(_textureBufferID, rocketPosition);
     
 }
 
