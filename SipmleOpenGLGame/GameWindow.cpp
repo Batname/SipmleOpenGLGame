@@ -26,6 +26,30 @@ GameWindow::GameWindow(bool running) :
     _width(800*16/9),
     _vertexBufferID(0)
 {
+    setupGL();
+    _textureBufferID = loadAndBufferImage("rocket_1.tga");
+    
+    renderArray = new std::vector<Sprite *>;
+    
+    PlayerSprite * roket = new PlayerSprite(_textureBufferID, makeVector2(500, 500));
+    roket->setBoundingBox(makeBoundingBox(_height, 0, 0, _width));
+    renderArray->push_back(roket);
+    
+    Sprite * otherRocket = new Sprite(_textureBufferID, makeVector2(700, 400));
+    otherRocket->setVelocity(makeVector2(1.0f, 1.0f));
+    renderArray->push_back(otherRocket);
+}
+
+GameWindow::~GameWindow()
+{
+    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
+        delete (* spriteIterator);
+    }
+    delete renderArray;
+}
+
+void GameWindow::setupGL()
+{
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glViewport(0.0f, 0.0f, _width, _height);
     
@@ -46,16 +70,6 @@ GameWindow::GameWindow(bool running) :
     
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glTexCoordPointer(2, GL_FLOAT, sizeof(VertexData), (GLvoid *) __offsetof(VertexData, textureCoordinates));
-    
-    _textureBufferID = loadAndBufferImage("rocket_1.tga");
-    
-    Vector2 rocketPosition;
-    rocketPosition.x = 300;
-    rocketPosition.y = 200;
-    
-    _rocket = new PlayerSprite(_textureBufferID, rocketPosition);
-    _rocket->setBoundingBox(makeBoundingBox(_height,0,0,_width));
-    // _rocket->setVelocity(makeVector2(2.0f, 2.0f));
 }
 
 GLuint GameWindow::loadAndBufferImage(const char *filename)
@@ -92,12 +106,16 @@ void GameWindow::render()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
-    _rocket->render();
+    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
+        (* spriteIterator)->render();
+    }
  
     glfwSwapBuffers();
 }
 
 void GameWindow::update()
 {
-    _rocket->update();
+    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
+        (* spriteIterator)->update();
+    }
 }

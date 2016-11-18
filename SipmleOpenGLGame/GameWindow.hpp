@@ -10,8 +10,7 @@
 #define GameWindow_hpp
 
 #include "PlayerSprite.hpp"
-
-#include <GL/glfw.h>
+#include "Prefix.h"
 
 class GameWindow
 {
@@ -23,14 +22,18 @@ private:
     GLfloat _width;
     GLuint _vertexBufferID;
     GLuint _textureBufferID;
-    PlayerSprite * _rocket;
+    std::vector<Sprite *> *renderArray;
     
     // member functions
     GLuint loadAndBufferImage(const char *filename);
+    void setupGL();
     
 public:
     // constructor
     GameWindow(bool running);
+    
+    // destructor
+    ~GameWindow();
     
     // setters
     void setRuning(bool newRunning);

@@ -1,6 +1,6 @@
-#include "GameWindow.hpp"
 
-#include <GL/glfw.h>
+#include "GameWindow.hpp"
+#include "Prefix.h"
 
 #define Updates_Per_Second 60
 

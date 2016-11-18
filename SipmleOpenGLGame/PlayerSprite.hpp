@@ -10,9 +10,7 @@
 #define PlayerSprite_hpp
 
 #include "Sprite.hpp"
-#include "BoundingBox.hpp"
-
-#include <Gl/glfw.h>
+#include "Prefix.h"
 
 class PlayerSprite : public Sprite
 {

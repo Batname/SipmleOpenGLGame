@@ -9,9 +9,7 @@
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
-#include <GL/glfw.h>
-
-#include "Vector2.hpp"
+#include "Prefix.h"
 
 #define Square_Size 100
 

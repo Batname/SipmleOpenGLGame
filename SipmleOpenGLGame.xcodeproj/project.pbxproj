@@ -43,6 +43,7 @@
 		18687DE01DDE1D74009A4B52 /* PlayerSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerSprite.hpp; sourceTree = "<group>"; };
 		18687DE21DDE4AFD009A4B52 /* BoundingBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingBox.cpp; sourceTree = "<group>"; };
 		18687DE31DDE4AFD009A4B52 /* BoundingBox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BoundingBox.hpp; sourceTree = "<group>"; };
+		18687DE71DDEF4A3009A4B52 /* Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.h; sourceTree = "<group>"; };
 		18B666451DDA62FD0085EAB1 /* SipmleOpenGLGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SipmleOpenGLGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B666481DDA62FD0085EAB1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		18B666501DDA64E80085EAB1 /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
@@ -74,6 +75,24 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		18687DE51DDEF3F2009A4B52 /* Vector2 */ = {
+			isa = PBXGroup;
+			children = (
+				18687DDC1DDE11E8009A4B52 /* Vector2.cpp */,
+				18687DDD1DDE11E8009A4B52 /* Vector2.hpp */,
+			);
+			name = Vector2;
+			sourceTree = "<group>";
+		};
+		18687DE61DDEF472009A4B52 /* BoundingBox */ = {
+			isa = PBXGroup;
+			children = (
+				18687DE21DDE4AFD009A4B52 /* BoundingBox.cpp */,
+				18687DE31DDE4AFD009A4B52 /* BoundingBox.hpp */,
+			);
+			name = BoundingBox;
+			sourceTree = "<group>";
+		};
 		18B6663C1DDA62FC0085EAB1 = {
 			isa = PBXGroup;
 			children = (
@@ -95,17 +114,16 @@
 		18B666471DDA62FD0085EAB1 /* SipmleOpenGLGame */ = {
 			isa = PBXGroup;
 			children = (
+				18687DE61DDEF472009A4B52 /* BoundingBox */,
+				18687DE51DDEF3F2009A4B52 /* Vector2 */,
 				18687DD91DDCFDE3009A4B52 /* Sprite.cpp */,
 				18687DDA1DDCFDE3009A4B52 /* Sprite.hpp */,
 				18B666481DDA62FD0085EAB1 /* main.cpp */,
 				1864276B1DDB6C9200E7B2E3 /* GameWindow.cpp */,
 				1864276C1DDB6C9200E7B2E3 /* GameWindow.hpp */,
-				18687DDC1DDE11E8009A4B52 /* Vector2.cpp */,
-				18687DDD1DDE11E8009A4B52 /* Vector2.hpp */,
 				18687DDF1DDE1D74009A4B52 /* PlayerSprite.cpp */,
 				18687DE01DDE1D74009A4B52 /* PlayerSprite.hpp */,
-				18687DE21DDE4AFD009A4B52 /* BoundingBox.cpp */,
-				18687DE31DDE4AFD009A4B52 /* BoundingBox.hpp */,
+				18687DE71DDEF4A3009A4B52 /* Prefix.h */,
 			);
 			path = SipmleOpenGLGame;
 			sourceTree = "<group>";
