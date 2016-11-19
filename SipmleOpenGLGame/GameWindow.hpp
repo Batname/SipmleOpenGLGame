@@ -43,6 +43,8 @@ private:
     void renderBalls();
     void renderRocks();
     void updateRocks();
+    bool checkForCollision(Sprite *a, Sprite *b);
+    void clearByCollision();
     
 public:
     // constructor

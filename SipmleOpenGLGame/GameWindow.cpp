@@ -119,6 +119,7 @@ void GameWindow::render()
 
 void GameWindow::update()
 {
+    clearByCollision();
     clearBalls();
     clearRocks();
     
@@ -132,6 +133,32 @@ void GameWindow::update()
     _playerRocket->update();
     updateBalls();
     updateRocks();
+}
+
+bool GameWindow::checkForCollision(Sprite *a, Sprite *b)
+{
+    return !(
+             a->getPosition().x + Square_Size/2 <= b->getPosition().x - Square_Size/2 ||
+             a->getPosition().x - Square_Size/2 >= b->getPosition().x + Square_Size/2 ||
+             a->getPosition().y + Square_Size/2 <= b->getPosition().y - Square_Size/2 ||
+             a->getPosition().y - Square_Size/2 >= b->getPosition().y + Square_Size/2
+             );
+}
+
+void GameWindow::clearByCollision()
+{
+    for (std::vector<Rock *>::iterator spriteIteratorRock = _rocksArray->begin(); spriteIteratorRock != _rocksArray->end(); spriteIteratorRock++) {
+        if (checkForCollision(*spriteIteratorRock, _playerRocket)){
+            _deleteRocksArray->push_back(spriteIteratorRock);
+        }
+        
+        for (std::vector<Ball *>::iterator spriteIteratorBall = _ballsArray->begin(); spriteIteratorBall != _ballsArray->end(); spriteIteratorBall++) {
+            if (checkForCollision(*spriteIteratorRock, *spriteIteratorBall)){
+                _deleteRocksArray->push_back(spriteIteratorRock);
+                _deleteBallsArray->push_back(spriteIteratorBall);
+            }
+        }
+    }
 }
 
 void GameWindow::renderBalls()
@@ -188,7 +215,9 @@ void GameWindow::clearBalls()
     }
     
     for(std::vector<std::vector<Ball *>::iterator>::iterator deleteIterator = _deleteBallsArray->begin(); deleteIterator != _deleteBallsArray->end(); deleteIterator++) {
-        _ballsArray->erase(*deleteIterator);
+        if((**deleteIterator)->getVelocity().x > 0) {
+            _ballsArray->erase(*deleteIterator);
+        }
     }
 }
 
@@ -203,6 +232,9 @@ void GameWindow::clearRocks()
     
     for(std::vector<std::vector<Rock *>::iterator>::iterator deleteIterator = _deleteRocksArray->begin(); deleteIterator != _deleteRocksArray->end(); deleteIterator++) {
         _rocksArray->erase(*deleteIterator);
+        if((**deleteIterator)->getVelocity().x > 0) {
+            _rocksArray->erase(*deleteIterator);
+        }
     }
 }
 
