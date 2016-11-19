@@ -36,22 +36,11 @@ Vector2 Sprite::getVelocity()
     return _velocity;
 }
 
-void Sprite::setRotation(GLfloat rotation)
-{
-    _rotation = rotation;
-}
-
-GLfloat Sprite::getRotation()
-{
-    return _rotation;
-}
-
 void Sprite::render()
 {
     glBindTexture(GL_TEXTURE_2D, _textureBufferID);
     glLoadIdentity();
     glTranslatef(_position.x - Square_Size/2, _position.y - Square_Size/2, 0);
-    glRotatef(_rotation, 0, 0, 1.0f);
     glDrawArrays(GL_QUADS, 0, 4);
 }
 

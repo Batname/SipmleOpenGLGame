@@ -6,6 +6,11 @@
 
 GameWindow * gameWindow;
 
+void GLFWCALL mouseButtonPressed(int button, int action)
+{
+    gameWindow->mouseButtonPressed(button, action);
+}
+
 int main(int argc, const char * argv[]) {
 
     glfwInit();
@@ -13,6 +18,7 @@ int main(int argc, const char * argv[]) {
     glfwOpenWindow(800*16/9, 800, 8, 8, 8, 8, 0, 0, GLFW_WINDOW);
     glfwSetWindowTitle("OpenGL Game");
     glfwSwapInterval(0);
+    glfwSetMouseButtonCallback(mouseButtonPressed);
     
     gameWindow = new GameWindow(true);
     

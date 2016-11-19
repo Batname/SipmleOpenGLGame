@@ -30,7 +30,6 @@ GameWindow::GameWindow(bool running) :
     _textureBufferID = loadAndBufferImage("rocket_1.tga");
     _playerRocket = new PlayerSprite(_textureBufferID, makeVector2(_height/2, 300));
     _playerRocket->setBoundingBox(makeBoundingBox(_height, 0, 0, _width));
-    _playerRocket->setRotation(-45);
     
 }
 
@@ -70,19 +69,15 @@ GLuint GameWindow::loadAndBufferImage(const char *filename)
 {
     GLFWimage imageData;
     glfwReadImage(filename, &imageData, NULL);
-    
     GLuint textureBufferID;
     glGenTextures(1, &textureBufferID);
     glBindTexture(GL_TEXTURE_2D, textureBufferID);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, imageData.Width, imageData.Height, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData.Data);
-    
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
     glfwFreeImage(&imageData);
-    
     return textureBufferID;
 }
 
@@ -115,4 +110,15 @@ void GameWindow::update()
 //    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
 //        (* spriteIterator)->update();
 //    }
+}
+
+void GameWindow::mouseButtonPressed(int button, int action)
+{
+    if (button == GLFW_MOUSE_BUTTON_LEFT  && action == GLFW_PRESS) {
+        int x;
+        int y;
+        glfwGetMousePos(&x, &y);
+        y = 800 - y;
+        std::cout << x << " " << y << std::endl;
+    }
 }

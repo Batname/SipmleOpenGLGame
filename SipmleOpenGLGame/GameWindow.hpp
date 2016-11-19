@@ -44,6 +44,7 @@ public:
     // member functions
     void render();
     void update();
+    void mouseButtonPressed(int button, int action);
 };
 
 #endif /* GameWindow_hpp */

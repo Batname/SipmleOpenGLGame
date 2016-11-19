@@ -16,6 +16,7 @@
 		18B666531DDA65060085EAB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666521DDA65060085EAB1 /* OpenGL.framework */; };
 		18B666551DDA6F470085EAB1 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */; };
 		18B666571DDA75300085EAB1 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666561DDA75300085EAB1 /* libglfw.dylib */; };
+		18E4D43B1DE04F7F00E38547 /* ball.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18E4D43A1DE04F7900E38547 /* ball.tga */; };
 		18F9D3891DDBB9C800DC178B /* rocket_1.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18F9D3881DDBB9A800DC178B /* rocket_1.tga */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				18E4D43B1DE04F7F00E38547 /* ball.tga in CopyFiles */,
 				18F9D3891DDBB9C800DC178B /* rocket_1.tga in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +52,7 @@
 		18B666521DDA65060085EAB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
 		18B666561DDA75300085EAB1 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = ../../../../../usr/local/Cellar/glfw2/2.7.9/lib/libglfw.dylib; sourceTree = "<group>"; };
+		18E4D43A1DE04F7900E38547 /* ball.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball.tga; sourceTree = "<group>"; };
 		18F9D3881DDBB9A800DC178B /* rocket_1.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket_1.tga; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +73,7 @@
 		18687DD81DDCC741009A4B52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18E4D43A1DE04F7900E38547 /* ball.tga */,
 				18F9D3881DDBB9A800DC178B /* rocket_1.tga */,
 			);
 			name = Resources;
