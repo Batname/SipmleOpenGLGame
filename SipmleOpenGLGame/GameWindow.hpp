@@ -33,7 +33,7 @@ private:
     // member functions
     GLuint loadAndBufferImage(const char *filename);
     void setupGL();
-    void appendBall();
+    void addBall();
     void updateBalls();
     void clearBalls();
     void clearRocks();

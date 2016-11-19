@@ -14,10 +14,10 @@ typedef struct {
 } VertexData;
 
 VertexData vertices[] = {
-    {{0.0f, 0.0f, 0.0f},{0.0f, 0.0f}},
-    {{Square_Size, 0.0f, 0.0f},{1.0f, 0.0f}},
-    {{Square_Size, Square_Size, 0.0f},{1.0f, 1.0f}},
-    {{0.0f, Square_Size, 0.0f},{0.0f, 1.0f}}
+    {{-Square_Size/2, -Square_Size/2, 0.0f},{0.0f, 0.0f}},
+    {{Square_Size/2, -Square_Size/2, 0.0f},	{1.0f, 0.0f}},
+    {{Square_Size/2, Square_Size/2, 0.0f},	{1.0f,1.0f}},
+    {{-Square_Size/2, Square_Size/2, 0.0f}, {0.0f, 1.0f}}
 };
 
 GameWindow::GameWindow(bool running) :
@@ -51,6 +51,9 @@ GameWindow::~GameWindow()
     delete _playerRocket;
     
     glDeleteBuffers(1, &_vertexBufferID);
+    glDeleteTextures(1, &_textureBufferID);
+    glDeleteTextures(1, &_ballTectureBufferID);
+    glDeleteTextures(1, &_rockTextureBufferID);
 }
 
 void GameWindow::setupGL()
@@ -145,12 +148,20 @@ void GameWindow::renderRocks()
     }
 }
 
-void GameWindow::appendBall()
+void GameWindow::addBall()
 {
     Ball * ball = new Ball(_ballTectureBufferID, makeVector2(_playerRocket->getPosition().x + Square_Size/2, _playerRocket->getPosition().y));
     ball->setVelocity(makeVector2(5.0f, 0.0f));
-    
     _ballsArray->push_back(ball);
+}
+
+void GameWindow::addRock()
+{
+    int locationY = rand() % (int)_height;
+    Rock *rock = new Rock(_rockTextureBufferID, makeVector2(_width + Square_Size/2, locationY));
+    rock->setVelocity(makeVector2(-5,0));
+    rock->setRotationVelocity(1);
+    _rocksArray->push_back(rock);
 }
 
 void GameWindow::updateBalls()
@@ -198,15 +209,7 @@ void GameWindow::clearRocks()
 void GameWindow::mouseButtonPressed(int button, int action)
 {
     if (button == GLFW_MOUSE_BUTTON_LEFT  && action == GLFW_PRESS) {
-        appendBall();
+        addBall();
         std::cout << _ballsArray->size() <<std::endl;
     }
-}
-
-void GameWindow::addRock()
-{
-    int locationY = rand() % (int)_height;
-    Rock *rock = new Rock(_rockTextureBufferID, makeVector2(_width + Square_Size/2, locationY));
-    rock->setVelocity(makeVector2(-5,0));
-    _rocksArray->push_back(rock);
 }
