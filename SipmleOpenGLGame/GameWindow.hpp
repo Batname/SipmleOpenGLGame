@@ -32,6 +32,7 @@ private:
     void setupGL();
     void appendBall();
     void updateBalls();
+    void clearBalls();
     
 public:
     // constructor

@@ -31,6 +31,7 @@ GameWindow::GameWindow(bool running) :
     _ballTectureBufferID = loadAndBufferImage("ball2.tga");
     
     _ballsArray = new std::vector<Ball *>;
+    _ballsArray->reserve(20);
     
     _playerRocket = new PlayerSprite(_textureBufferID, makeVector2(_height/2, 300));
     _playerRocket->setBoundingBox(makeBoundingBox(_height, 0, 0, _width));
@@ -126,8 +127,23 @@ void GameWindow::updateBalls()
     }
 }
 
+void GameWindow::clearBalls()
+{
+    std::vector<std::vector<Ball *>::iterator> deleteArray;
+    for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
+        if(((*spriteIterator)->getPosition()).x > _width + Square_Size) {
+            deleteArray.push_back(spriteIterator);
+        }
+    }
+    
+    for(std::vector<std::vector<Ball *>::iterator>::iterator deleteIterator = deleteArray.begin(); deleteIterator != deleteArray.end(); deleteIterator++) {
+        _ballsArray->erase(*deleteIterator);
+    }
+}
+
 void GameWindow::update()
 {
+    clearBalls();
     _playerRocket->update();
     updateBalls();
 }
@@ -136,5 +152,6 @@ void GameWindow::mouseButtonPressed(int button, int action)
 {
     if (button == GLFW_MOUSE_BUTTON_LEFT  && action == GLFW_PRESS) {
         appendBall();
+        std::cout << _ballsArray->size() <<std::endl;
     }
 }
