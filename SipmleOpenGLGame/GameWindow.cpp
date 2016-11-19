@@ -180,28 +180,28 @@ void GameWindow::updateRocks()
 
 void GameWindow::clearBalls()
 {
-    std::vector<std::vector<Ball *>::iterator> deleteArray;
+    _deleteBallsArray = new std::vector<std::vector<Ball *>::iterator>;
     for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
         if(((*spriteIterator)->getPosition()).x > _width + Square_Size) {
-            deleteArray.push_back(spriteIterator);
+            _deleteBallsArray->push_back(spriteIterator);
         }
     }
     
-    for(std::vector<std::vector<Ball *>::iterator>::iterator deleteIterator = deleteArray.begin(); deleteIterator != deleteArray.end(); deleteIterator++) {
+    for(std::vector<std::vector<Ball *>::iterator>::iterator deleteIterator = _deleteBallsArray->begin(); deleteIterator != _deleteBallsArray->end(); deleteIterator++) {
         _ballsArray->erase(*deleteIterator);
     }
 }
 
 void GameWindow::clearRocks()
 {
-    std::vector<std::vector<Rock *>::iterator> deleteArray;
+    _deleteRocksArray = new std::vector<std::vector<Rock *>::iterator>;
     for (std::vector<Rock *>::iterator spriteIterator = _rocksArray->begin(); spriteIterator != _rocksArray->end(); spriteIterator++) {
         if(((*spriteIterator)->getPosition()).x > _width + Square_Size) {
-            deleteArray.push_back(spriteIterator);
+            _deleteRocksArray->push_back(spriteIterator);
         }
     }
     
-    for(std::vector<std::vector<Rock *>::iterator>::iterator deleteIterator = deleteArray.begin(); deleteIterator != deleteArray.end(); deleteIterator++) {
+    for(std::vector<std::vector<Rock *>::iterator>::iterator deleteIterator = _deleteRocksArray->begin(); deleteIterator != _deleteRocksArray->end(); deleteIterator++) {
         _rocksArray->erase(*deleteIterator);
     }
 }

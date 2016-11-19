@@ -29,6 +29,8 @@ private:
     PlayerSprite * _playerRocket;
     std::vector<Ball *> * _ballsArray;
     std::vector<Rock *> * _rocksArray;
+    std::vector<std::vector<Ball *>::iterator> * _deleteBallsArray;
+    std::vector<std::vector<Rock *>::iterator> * _deleteRocksArray;
     
     // member functions
     GLuint loadAndBufferImage(const char *filename);
