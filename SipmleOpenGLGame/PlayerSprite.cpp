@@ -9,7 +9,7 @@
 #include "PlayerSprite.hpp"
 
 PlayerSprite::PlayerSprite(GLuint textureBufferID, Vector2 position) :
-    Sprite(textureBufferID, position), f0(0.0f), f_move(5.5f)
+    Sprite(textureBufferID, position), f0(0.0f), f_move(3.5f)
 {
     
 }

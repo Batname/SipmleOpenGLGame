@@ -12,6 +12,7 @@ Sprite::Sprite(GLuint textureBufferID, Vector2 position) :
     _textureBufferID(textureBufferID),
     _position(position)
 {
+
 }
 
 

@@ -2,7 +2,7 @@
 #include "GameWindow.hpp"
 #include "Prefix.h"
 
-#define Updates_Per_Second 60
+#define Updates_Per_Second 120
 
 GameWindow * gameWindow;
 

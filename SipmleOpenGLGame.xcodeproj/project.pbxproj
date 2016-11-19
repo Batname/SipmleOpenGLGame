@@ -17,6 +17,9 @@
 		18B666551DDA6F470085EAB1 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */; };
 		18B666571DDA75300085EAB1 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B666561DDA75300085EAB1 /* libglfw.dylib */; };
 		18E4D43B1DE04F7F00E38547 /* ball.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18E4D43A1DE04F7900E38547 /* ball.tga */; };
+		18E4D43D1DE05E9500E38547 /* ball2.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18E4D43C1DE05E7800E38547 /* ball2.tga */; };
+		18E4D43F1DE05F4200E38547 /* rotated_rocket.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18E4D43E1DE05F3400E38547 /* rotated_rocket.tga */; };
+		18E4D4421DE060FF00E38547 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18E4D4401DE060FF00E38547 /* Ball.cpp */; };
 		18F9D3891DDBB9C800DC178B /* rocket_1.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18F9D3881DDBB9A800DC178B /* rocket_1.tga */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				18E4D43F1DE05F4200E38547 /* rotated_rocket.tga in CopyFiles */,
+				18E4D43D1DE05E9500E38547 /* ball2.tga in CopyFiles */,
 				18E4D43B1DE04F7F00E38547 /* ball.tga in CopyFiles */,
 				18F9D3891DDBB9C800DC178B /* rocket_1.tga in CopyFiles */,
 			);
@@ -53,6 +58,10 @@
 		18B666541DDA6F470085EAB1 /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
 		18B666561DDA75300085EAB1 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = ../../../../../usr/local/Cellar/glfw2/2.7.9/lib/libglfw.dylib; sourceTree = "<group>"; };
 		18E4D43A1DE04F7900E38547 /* ball.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball.tga; sourceTree = "<group>"; };
+		18E4D43C1DE05E7800E38547 /* ball2.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball2.tga; sourceTree = "<group>"; };
+		18E4D43E1DE05F3400E38547 /* rotated_rocket.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rotated_rocket.tga; sourceTree = "<group>"; };
+		18E4D4401DE060FF00E38547 /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
+		18E4D4411DE060FF00E38547 /* Ball.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ball.hpp; sourceTree = "<group>"; };
 		18F9D3881DDBB9A800DC178B /* rocket_1.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket_1.tga; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,7 +82,9 @@
 		18687DD81DDCC741009A4B52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18E4D43E1DE05F3400E38547 /* rotated_rocket.tga */,
 				18E4D43A1DE04F7900E38547 /* ball.tga */,
+				18E4D43C1DE05E7800E38547 /* ball2.tga */,
 				18F9D3881DDBB9A800DC178B /* rocket_1.tga */,
 			);
 			name = Resources;
@@ -128,6 +139,8 @@
 				18687DDF1DDE1D74009A4B52 /* PlayerSprite.cpp */,
 				18687DE01DDE1D74009A4B52 /* PlayerSprite.hpp */,
 				18687DE71DDEF4A3009A4B52 /* Prefix.h */,
+				18E4D4401DE060FF00E38547 /* Ball.cpp */,
+				18E4D4411DE060FF00E38547 /* Ball.hpp */,
 			);
 			path = SipmleOpenGLGame;
 			sourceTree = "<group>";
@@ -206,6 +219,7 @@
 				18687DE41DDE4AFD009A4B52 /* BoundingBox.cpp in Sources */,
 				18687DDB1DDCFDE3009A4B52 /* Sprite.cpp in Sources */,
 				18687DE11DDE1D74009A4B52 /* PlayerSprite.cpp in Sources */,
+				18E4D4421DE060FF00E38547 /* Ball.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

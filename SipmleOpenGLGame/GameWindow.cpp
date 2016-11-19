@@ -27,7 +27,11 @@ GameWindow::GameWindow(bool running) :
     _vertexBufferID(0)
 {
     setupGL();
-    _textureBufferID = loadAndBufferImage("rocket_1.tga");
+    _textureBufferID = loadAndBufferImage("rotated_rocket.tga");
+    _ballTectureBufferID = loadAndBufferImage("ball2.tga");
+    
+    _ballsArray = new std::vector<Ball *>;
+    
     _playerRocket = new PlayerSprite(_textureBufferID, makeVector2(_height/2, 300));
     _playerRocket->setBoundingBox(makeBoundingBox(_height, 0, 0, _width));
     
@@ -35,10 +39,13 @@ GameWindow::GameWindow(bool running) :
 
 GameWindow::~GameWindow()
 {
-//    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
-//        delete (* spriteIterator);
-//    }
-//    delete renderArray;
+    for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
+        delete (* spriteIterator);
+    }
+    delete _ballsArray;
+    delete _playerRocket;
+    
+    glDeleteBuffers(1, &_vertexBufferID);
 }
 
 void GameWindow::setupGL()
@@ -72,7 +79,7 @@ GLuint GameWindow::loadAndBufferImage(const char *filename)
     GLuint textureBufferID;
     glGenTextures(1, &textureBufferID);
     glBindTexture(GL_TEXTURE_2D, textureBufferID);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, imageData.Width, imageData.Height, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData.Data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageData.Width, imageData.Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData.Data);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -97,9 +104,9 @@ void GameWindow::render()
     
     _playerRocket->render();
     
-//    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
-//        (* spriteIterator)->render();
-//    }
+    for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
+        (* spriteIterator)->render();
+    }
  
     glfwSwapBuffers();
 }
@@ -107,18 +114,17 @@ void GameWindow::render()
 void GameWindow::update()
 {
     _playerRocket->update();
-//    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
-//        (* spriteIterator)->update();
-//    }
+    for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
+        (* spriteIterator)->update();
+    }
 }
 
 void GameWindow::mouseButtonPressed(int button, int action)
 {
     if (button == GLFW_MOUSE_BUTTON_LEFT  && action == GLFW_PRESS) {
-        int x;
-        int y;
-        glfwGetMousePos(&x, &y);
-        y = 800 - y;
-        std::cout << x << " " << y << std::endl;
+        Ball * ball = new Ball(_ballTectureBufferID, makeVector2(_playerRocket->getPosition().x + Square_Size/2, _playerRocket->getPosition().y));
+        ball->setVelocity(makeVector2(5.0f, 0.0f));
+        
+        _ballsArray->push_back(ball);
     }
 }
