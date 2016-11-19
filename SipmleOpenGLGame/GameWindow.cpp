@@ -29,9 +29,13 @@ GameWindow::GameWindow(bool running) :
     setupGL();
     _textureBufferID = loadAndBufferImage("rotated_rocket.tga");
     _ballTectureBufferID = loadAndBufferImage("ball2.tga");
+    _rockTextureBufferID = loadAndBufferImage("rock.tga");
     
     _ballsArray = new std::vector<Ball *>;
     _ballsArray->reserve(20);
+    
+    _rocksArray = new std::vector<Rock *>;
+    _rocksArray->reserve(20);
     
     _playerRocket = new PlayerSprite(_textureBufferID, makeVector2(_height/2, 300));
     _playerRocket->setBoundingBox(makeBoundingBox(_height, 0, 0, _width));
@@ -104,12 +108,41 @@ void GameWindow::render()
     glClear(GL_COLOR_BUFFER_BIT);
     
     _playerRocket->render();
+    renderBalls();
+    renderRocks();
+ 
+    glfwSwapBuffers();
+}
+
+void GameWindow::update()
+{
+    clearBalls();
+    clearRocks();
     
+    static int updates;
+    if (updates >= 60){
+        addRock();
+        updates = 0;
+    }
+    ++updates;
+    
+    _playerRocket->update();
+    updateBalls();
+    updateRocks();
+}
+
+void GameWindow::renderBalls()
+{
     for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
         (* spriteIterator)->render();
     }
- 
-    glfwSwapBuffers();
+}
+
+void GameWindow::renderRocks()
+{
+    for (std::vector<Rock *>::iterator spriteIterator = _rocksArray->begin(); spriteIterator != _rocksArray->end(); spriteIterator++) {
+        (* spriteIterator)->render();
+    }
 }
 
 void GameWindow::appendBall()
@@ -123,6 +156,13 @@ void GameWindow::appendBall()
 void GameWindow::updateBalls()
 {
     for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
+        (* spriteIterator)->update();
+    }
+}
+
+void GameWindow::updateRocks()
+{
+    for (std::vector<Rock *>::iterator spriteIterator = _rocksArray->begin(); spriteIterator != _rocksArray->end(); spriteIterator++) {
         (* spriteIterator)->update();
     }
 }
@@ -141,11 +181,18 @@ void GameWindow::clearBalls()
     }
 }
 
-void GameWindow::update()
+void GameWindow::clearRocks()
 {
-    clearBalls();
-    _playerRocket->update();
-    updateBalls();
+    std::vector<std::vector<Rock *>::iterator> deleteArray;
+    for (std::vector<Rock *>::iterator spriteIterator = _rocksArray->begin(); spriteIterator != _rocksArray->end(); spriteIterator++) {
+        if(((*spriteIterator)->getPosition()).x > _width + Square_Size) {
+            deleteArray.push_back(spriteIterator);
+        }
+    }
+    
+    for(std::vector<std::vector<Rock *>::iterator>::iterator deleteIterator = deleteArray.begin(); deleteIterator != deleteArray.end(); deleteIterator++) {
+        _rocksArray->erase(*deleteIterator);
+    }
 }
 
 void GameWindow::mouseButtonPressed(int button, int action)
@@ -154,4 +201,12 @@ void GameWindow::mouseButtonPressed(int button, int action)
         appendBall();
         std::cout << _ballsArray->size() <<std::endl;
     }
+}
+
+void GameWindow::addRock()
+{
+    int locationY = rand() % (int)_height;
+    Rock *rock = new Rock(_rockTextureBufferID, makeVector2(_width + Square_Size/2, locationY));
+    rock->setVelocity(makeVector2(-5,0));
+    _rocksArray->push_back(rock);
 }

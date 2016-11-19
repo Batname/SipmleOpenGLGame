@@ -11,6 +11,7 @@
 
 #include "PlayerSprite.hpp"
 #include "Ball.hpp"
+#include "Rock.hpp"
 #include "Prefix.h"
 
 class GameWindow
@@ -24,8 +25,10 @@ private:
     GLuint _vertexBufferID;
     GLuint _textureBufferID;
     GLuint _ballTectureBufferID;
+    GLuint _rockTextureBufferID;
     PlayerSprite * _playerRocket;
     std::vector<Ball *> * _ballsArray;
+    std::vector<Rock *> * _rocksArray;
     
     // member functions
     GLuint loadAndBufferImage(const char *filename);
@@ -33,6 +36,11 @@ private:
     void appendBall();
     void updateBalls();
     void clearBalls();
+    void clearRocks();
+    void addRock();
+    void renderBalls();
+    void renderRocks();
+    void updateRocks();
     
 public:
     // constructor
