@@ -111,20 +111,30 @@ void GameWindow::render()
     glfwSwapBuffers();
 }
 
-void GameWindow::update()
+void GameWindow::appendBall()
 {
-    _playerRocket->update();
+    Ball * ball = new Ball(_ballTectureBufferID, makeVector2(_playerRocket->getPosition().x + Square_Size/2, _playerRocket->getPosition().y));
+    ball->setVelocity(makeVector2(5.0f, 0.0f));
+    
+    _ballsArray->push_back(ball);
+}
+
+void GameWindow::updateBalls()
+{
     for (std::vector<Ball *>::iterator spriteIterator = _ballsArray->begin(); spriteIterator != _ballsArray->end(); spriteIterator++) {
         (* spriteIterator)->update();
     }
 }
 
+void GameWindow::update()
+{
+    _playerRocket->update();
+    updateBalls();
+}
+
 void GameWindow::mouseButtonPressed(int button, int action)
 {
     if (button == GLFW_MOUSE_BUTTON_LEFT  && action == GLFW_PRESS) {
-        Ball * ball = new Ball(_ballTectureBufferID, makeVector2(_playerRocket->getPosition().x + Square_Size/2, _playerRocket->getPosition().y));
-        ball->setVelocity(makeVector2(5.0f, 0.0f));
-        
-        _ballsArray->push_back(ball);
+        appendBall();
     }
 }

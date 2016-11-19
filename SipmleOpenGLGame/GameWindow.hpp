@@ -30,6 +30,8 @@ private:
     // member functions
     GLuint loadAndBufferImage(const char *filename);
     void setupGL();
+    void appendBall();
+    void updateBalls();
     
 public:
     // constructor
