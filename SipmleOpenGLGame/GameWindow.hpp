@@ -22,7 +22,7 @@ private:
     GLfloat _width;
     GLuint _vertexBufferID;
     GLuint _textureBufferID;
-    std::vector<Sprite *> *renderArray;
+    PlayerSprite * _playerRocket;
     
     // member functions
     GLuint loadAndBufferImage(const char *filename);

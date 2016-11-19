@@ -19,6 +19,7 @@ private:
     // attributes
     GLuint _textureBufferID;
     Vector2 _velocity;
+    GLfloat _rotation;
     
 protected:
     Vector2 _position;
@@ -30,10 +31,12 @@ public:
     // setters
     void setPosition(Vector2 newPosition);
     void setVelocity(Vector2 newVector);
+    void setRotation(GLfloat rotation);
 
     // getters
     Vector2 getPosition();
     Vector2 getVelocity();
+    GLfloat getRotation();
     
     // member function
     void render();

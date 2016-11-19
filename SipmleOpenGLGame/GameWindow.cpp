@@ -28,24 +28,18 @@ GameWindow::GameWindow(bool running) :
 {
     setupGL();
     _textureBufferID = loadAndBufferImage("rocket_1.tga");
+    _playerRocket = new PlayerSprite(_textureBufferID, makeVector2(_height/2, 300));
+    _playerRocket->setBoundingBox(makeBoundingBox(_height, 0, 0, _width));
+    _playerRocket->setRotation(-45);
     
-    renderArray = new std::vector<Sprite *>;
-    
-    PlayerSprite * roket = new PlayerSprite(_textureBufferID, makeVector2(500, 500));
-    roket->setBoundingBox(makeBoundingBox(_height, 0, 0, _width));
-    renderArray->push_back(roket);
-    
-    Sprite * otherRocket = new Sprite(_textureBufferID, makeVector2(700, 400));
-    otherRocket->setVelocity(makeVector2(1.0f, 1.0f));
-    renderArray->push_back(otherRocket);
 }
 
 GameWindow::~GameWindow()
 {
-    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
-        delete (* spriteIterator);
-    }
-    delete renderArray;
+//    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
+//        delete (* spriteIterator);
+//    }
+//    delete renderArray;
 }
 
 void GameWindow::setupGL()
@@ -106,16 +100,19 @@ void GameWindow::render()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
-    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
-        (* spriteIterator)->render();
-    }
+    _playerRocket->render();
+    
+//    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
+//        (* spriteIterator)->render();
+//    }
  
     glfwSwapBuffers();
 }
 
 void GameWindow::update()
 {
-    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
-        (* spriteIterator)->update();
-    }
+    _playerRocket->update();
+//    for (std::vector<Sprite *>::iterator spriteIterator = renderArray->begin(); spriteIterator != renderArray->end(); spriteIterator++) {
+//        (* spriteIterator)->update();
+//    }
 }
